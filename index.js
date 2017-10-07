@@ -11,7 +11,9 @@ const bot = new FBBotFramework({
 app.use('/webhook', bot.middleware());
 
 bot.on('message', function (userId, message) {
-  bot.sendTextMessage(userId, `Echo Message: ${message}`);
+  if (message) {
+    return bot.sendTextMessage(userId, "Hi, I am Lots and I'm so ecstatic to deal with you.");
+  }
 });
 
 app.get('/', function (req, res) {
